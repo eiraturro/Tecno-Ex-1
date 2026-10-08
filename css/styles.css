@@ -18,7 +18,6 @@ p {
 }
 
 body {
-  background-color: var(--orange);
 }
 /*comentari que no surt
 
@@ -28,16 +27,18 @@ selection {
 /*border = espai cap a fora marge  .  padding = espai cap a dins del marge*/
 .hero {
   padding: 67px; /*1 valor amb px es l'espai a tots els cantons*/
+  background: linear-gradient(180deg, #fcb782 85%, #fff 85%, #fff 100%);
 }
 .container {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   display: flex; /*dins del container, les 2 div colum (fills), es posin de costat*/
   width: 1312px; /*poses que d'ample faci menys com a una amplada màxima (tot lo de dins + petit) pq s'adapti a tot tipus de pantalles, i despres..*/
   margin: auto; /*que es centi al mig*/
 }
 .column {
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   width: 50%;
+  position: relative; /*aqui no fa res pero sempre que la columa sigui l pare d'un element...*/
 }
 
 .heading-wrapper {
@@ -144,6 +145,23 @@ h1 {
   font-style: normal;
   text-decoration: none;
   text-transform: none;
+}
+.shape {
+  position: absolute;
+  right: 0; /*enganxat a la dreta*/
+  border-radius: 0 0 400px 400px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  width: 580px;
+  height: 790px;
+  z-index: 0;
+}
+.toy {
+  position: relative;
+  z-index: 1;
 }
 
 /*animacions*/
