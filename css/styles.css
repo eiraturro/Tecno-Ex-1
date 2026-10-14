@@ -11,20 +11,30 @@ h3,
 h4,
 h5,
 h6,
+
+/*tots es textos venen com amb uns marges donats, llavors els treus ...*/
 p {
   margin: 0;
   padding: 0;
-  /*tots es textos venen com amb uns marges donats, llavors els treus*/
 }
 
 body {
+  margin: 0;
+  padding: 0;
 }
-/*comentari que no surt
+h1 {
+  font-size: 112px;
+  font-family: "Times New Roman";
+  font-weight: 400;
+  font-style: normal;
+  line-height: 108px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--white);
+}
 
-selection {
-  border: 1px solid black;*/
+/*HERO*/
 
-/*border = espai cap a fora marge  .  padding = espai cap a dins del marge*/
 .hero {
   padding: 67px; /*1 valor amb px es l'espai a tots els cantons*/
   background: linear-gradient(180deg, #fcb782 85%, #fff 85%, #fff 100%);
@@ -40,7 +50,6 @@ selection {
   width: 50%;
   position: relative; /*aqui no fa res pero sempre que la columa sigui l pare d'un element...*/
 }
-
 .heading-wrapper {
   margin-top: 70px;
   display: flex;
@@ -54,17 +63,6 @@ selection {
 .heading-wrapper .badge:hover .text-badge {
   /*quan passis per sobre del badge*/
   animation-play-state: running;
-}
-
-h1 {
-  font-size: 112px;
-  font-family: "Times New Roman";
-  font-weight: 400;
-  font-style: normal;
-  line-height: 108px;
-  text-decoration: none;
-  text-transform: none;
-  color: var(--white);
 }
 .text {
   padding: 40px 0; /*2 valors = espai dalt i baix*/
@@ -88,15 +86,12 @@ h1 {
   padding: 24px 40px;
   border-radius: 40px;
   display: inline-block /*pq entingui els margings i els padings*/;
-  transition: 0.3s backgrond-color; /*transició al text a:hover*/
+  transition: 
+   transition:
+    background-color 0.3s,
+    transform 0.3s; /*transició al text a:hover*/
 }
-.text a:hover {
-  /*estat botó quan passes x sobre, només poses el q vols q canvi, no has de repetir-ho tot*/
-  background-color: var(--dark-grey);
-  transform: translateY(-5px); /*que s'aixequi cap a munt*/
-}
-/*estat botó quan passes x sobre*/
-.btn-text {
+.btn-hero {/*estat botó quan passes x sobre*/
   font-size: 20px;
   font-family: "Helvetica Neue";
   font-weight: 500;
@@ -105,12 +100,10 @@ h1 {
   text-decoration: none;
   text-transform: none;
 }
-.cards-wraped {
-  /*embolcall, que conte els 3 textos de cards*/
-  font-family: "Helvetica Neue";
-  padding: 20px 0;
-  display: flex; /*posa els fills de dins, de costat*/
-  gap: 16px; /*espai entre 3 textos card*/
+.btn-hero:hover {
+  /*estat botó quan passes x sobre, només poses el q vols q canvi, no has de repetir-ho tot*/
+  background-color: var(--dark-grey);
+  transform: scale(1.05); /*que s'aixequi cap a munt*/
 }
 .card {
   padding: 20px;
@@ -129,8 +122,7 @@ h1 {
   font-size: 18px;
   color: var(--orange);
 }
-
-.p {
+.card p {
   font-size: 16px;
   font-family: "Helvetica Neue";
   font-weight: 300;
@@ -145,6 +137,13 @@ h1 {
   font-style: normal;
   text-decoration: none;
   text-transform: none;
+}
+.cards-wraped {
+  /*embolcall, que conte els 3 textos de cards*/
+  font-family: "Helvetica Neue";
+  padding: 20px 0;
+  display: flex; /*posa els fills de dins, de costat*/
+  gap: 16px; /*espai entre 3 textos card*/
 }
 .shape {
   position: absolute;
@@ -164,6 +163,218 @@ h1 {
   z-index: 1;
 }
 
+/* WORKS */
+
+/*--------- info base*/
+.works { /*fons*/
+  background: linear-gradient(180deg, #fff 74.04%, #fcb782 98.56%);
+  width: 1312px; /*poses que d'ample faci menys com a una amplada màxima (tot lo de dins + petit) pq s'adapti a tot tipus de pantalles, i despres..*/
+  margin: auto;
+  
+}
+.works { /*fons*/
+  padding: 105px 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: flex; /*dins del container, les 2 div colum (fills), es posin de costat*/
+  width: 1382px; /*poses que d'ample faci menys com a una amplada màxima (tot lo de dins + petit) pq s'adapti a tot tipus de pantalles, i despres..*/
+  margin: auto; /*que es centi al mig*/
+
+}
+.works .container { /*container*/
+  width: 1312px;
+  flex-direction: column;/*títol, graella i botó, un sota l'altre*/
+  align-items: center;
+  gap: 75px;
+  flex-shrink: 0;
+}
+/*--------- titol "works"*/
+.works h1 {
+  font-size: 112px;
+  font-family: "Times New Roman";
+  font-weight: 400;
+  font-style: normal;
+  line-height: 108px;
+  text-decoration: none;
+  text-transform: none;
+  color: var(--dark-grey);
+  align-items: center;
+}
+
+/*--------- graella*/
+.gridbox { /*container graella*/
+ display: grid;
+  height: 570px;
+row-gap: 70px;
+column-gap: 56px;
+align-self: stretch;
+grid-template-columns: repeat(3, 1fr);
+grid-auto-flow: row;
+}
+.work { /*cada work*/
+  position: relative; /*pq la capa i els textos es posin respecte a la targeta*/
+  border-radius: 25px;
+  overflow: hidden; /*talla els cantons de la imatge i de la capa*/
+}
+.work img { /*cada work*/
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.work-info {
+  position: absolute;
+  inset: 0; /*cobreix tota la targeta*/
+  background: rgba(51, 51, 51, 0.6);
+  opacity: 0; /*amagada*/
+  transition: 0.3s opacity;
+}
+.work:hover .work-info {
+  opacity: 1; /*visible quan passes per sobre de la TARGETA*/
+}
+.work-info p {
+  position: absolute;
+  color: var(--white);
+  font-family: "Helvetica Neue";
+  font-size: 20px;
+  font-weight: 500;
+}
+.project-dicipline { top: 25px; right: 25px; }
+.project-title     { bottom: 25px; left: 25px; }
+.project-year      { bottom: 25px; right: 25px; }
+
+/*---------- button*/
+.btn-plus {
+  position: absolute; /*es col·loca respecte a .work, que ja té position: relative*/
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /*centra la icona pel seu propi mig*/
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center; /*ara sí funciona, perquè hi ha display: flex*/
+  justify-content: center;
+  color: var(--white);
+  font-size: 40px;
+  line-height: 1;
+}
+.btn-plus svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transition: 0.4s transform; /*gir suau*/
+}
+.btn-plus:hover svg {
+  transform: rotate(90deg); /*quan passes per sobre de la icona, gira*/
+}
+.btn-plus:hover svg {
+  animation: rotate linear 2s infinite;
+}
+.btn-see-more {
+  align-items: center;
+  color: var(--dark-grey);
+  padding: 24px 40px;
+  border-radius: 40px;
+  display: inline-block;
+  transition: 0.3s all;
+  font-size: 20px;
+  font-family: Helvetica Neue;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 18px;
+  text-decoration: none;
+  text-transform: none;
+  border-radius: 40px;
+  background-color: none;
+  border: 1px solid var(--Dark-Grey, #333);
+}
+.btn-see-more:hover {
+  border-radius: 40px;
+  color: var(--White, #FFF);
+  background: var(--Electric-Orange, #FE6E06);
+  transform: scale(1.05); /*que s'aixequi cap a munt*/
+  border: 1px solid var(--Dark-Grey, #33333300);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*FOOTER*/
+.footer {
+  display: flex;
+  align-items: center; /*badge i bloc de text centrats en vertical entre ells*/
+  justify-content: center;
+  gap: 100px; /*espai entre el badge i el text (abans no n'hi havia)*/
+  width: 100%;
+  max-width: 1312px; /*màxim 1312px, però s'encongeix si la finestra és més estreta*/
+  margin: 20px auto;
+  padding: 6px 40px;
+  background-color: var(--white);
+  gap: 135px;
+  width: 1312px;
+}
+.footer .badge  {
+  width: 172px;
+  height: 172px;
+  align-items: center;
+}
+.footer-phrase {
+  width: 909px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /*alineat a la dreta*/
+  gap: 45px;
+}
+.footer-phrase h2 {
+  width: 100%;
+  font-size: 50px;
+  font-family: "Times New Roman";
+  font-weight: 400;
+  line-height: 108px;
+  color: var(--dark-grey);
+}
+.info-contact {
+  display: flex;
+  align-items: flex-start;
+  gap: 90px;
+}
+.info-contact p {
+  font-size: 16px;
+  font-family: "Helvetica Neue";
+  font-weight: 300;
+  text-align: right;
+  white-space: nowrap; /*que no es trenqui en dues línies*/
+  color: var(--dark-grey);
+}
+
+.social-icons{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 22px;
+  color: var(--dark-grey);
+}
+.social-icons a {
+  color: var(--dark-grey);
+}
+.social-icons a:hover {
+  color: var(--electric-orange);
+}
+ 
 /*animacions*/
 @keyframes rotate {
   0% {
@@ -171,5 +382,24 @@ h1 {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/*animacions*/
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+@media (max-width: 1200px) {
+  .gridbox {
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnes de la mateixa mida */
   }
 }
